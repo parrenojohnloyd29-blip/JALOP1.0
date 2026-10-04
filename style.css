@@ -1,0 +1,513 @@
+/* =========================
+   RESET
+========================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+/* =========================
+   BODY
+========================= */
+
+body {
+  width: 100%;
+  height: 100vh;
+
+  overflow: hidden;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-family: "Trebuchet MS", Arial, sans-serif;
+
+  color: white;
+
+  background:
+    radial-gradient(
+      circle at 50% 35%,
+      #40156b 0%,
+      #1d0b35 40%,
+      #07030d 100%
+    );
+}
+
+
+/* =========================
+   MOON
+========================= */
+
+.moon {
+  position: absolute;
+
+  width: 130px;
+  height: 130px;
+
+  top: 7%;
+  right: 10%;
+
+  border-radius: 50%;
+
+  background: #ffd86b;
+
+  box-shadow:
+    0 0 20px #ffb300,
+    0 0 60px #ff8c00;
+
+  z-index: 1;
+}
+
+.moon::after {
+  content: "";
+
+  position: absolute;
+
+  width: 120px;
+  height: 120px;
+
+  left: 28px;
+  top: -10px;
+
+  border-radius: 50%;
+
+  background: #16092a;
+}
+
+
+/* =========================
+   PUMPKINS
+========================= */
+
+.pumpkin {
+  position: absolute;
+
+  font-size: 60px;
+
+  z-index: 2;
+
+  animation: floating 4s ease-in-out infinite;
+}
+
+.pumpkin-one {
+  left: 7%;
+  top: 15%;
+}
+
+.pumpkin-two {
+  right: 8%;
+  bottom: 12%;
+
+  animation-delay: 1.5s;
+}
+
+
+/* =========================
+   GHOST
+========================= */
+
+.ghost {
+  position: absolute;
+
+  left: 10%;
+  bottom: 10%;
+
+  font-size: 70px;
+
+  z-index: 2;
+
+  animation: ghostFloat 3s ease-in-out infinite;
+}
+
+
+/* =========================
+   BATS
+========================= */
+
+.bat {
+  position: absolute;
+
+  font-size: 35px;
+
+  z-index: 2;
+
+  animation: fly 9s linear infinite;
+}
+
+.bat-one {
+  top: 18%;
+  left: -80px;
+}
+
+.bat-two {
+  top: 35%;
+  left: -150px;
+
+  animation-delay: 3s;
+}
+
+
+/* =========================
+   MAIN CARD
+========================= */
+
+.card {
+  position: relative;
+
+  z-index: 10;
+
+  width: min(90%, 570px);
+
+  padding: 45px 30px;
+
+  text-align: center;
+
+  border-radius: 28px;
+
+  background: rgba(12, 5, 25, 0.9);
+
+  border: 2px solid #ff6900;
+
+  box-shadow:
+    0 0 20px #ff6900,
+    0 0 70px rgba(126, 35, 255, 0.45);
+
+  backdrop-filter: blur(12px);
+}
+
+
+/* =========================
+   SKULL
+========================= */
+
+.skull {
+  font-size: 50px;
+
+  margin-bottom: 5px;
+
+  animation: skullPulse 2s ease-in-out infinite;
+}
+
+
+/* =========================
+   TITLE
+========================= */
+
+h1 {
+  color: #ff7518;
+
+  font-size: clamp(38px, 8vw, 60px);
+
+  letter-spacing: 4px;
+
+  margin-bottom: 15px;
+
+  text-shadow:
+    0 0 8px #ff4500,
+    0 0 20px #ff7518,
+    0 0 40px #ff4500;
+}
+
+
+/* =========================
+   QUESTION
+========================= */
+
+.question {
+  font-size: clamp(23px, 5vw, 32px);
+
+  margin-bottom: 35px;
+
+  color: #ffffff;
+}
+
+.question span {
+  color: #ff9d00;
+
+  font-weight: bold;
+
+  text-shadow:
+    0 0 10px #ff7500;
+}
+
+
+/* =========================
+   BUTTON AREA
+========================= */
+
+.buttons-area {
+  position: relative;
+
+  width: 100%;
+
+  height: 100px;
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  gap: 25px;
+}
+
+
+/* =========================
+   BUTTONS
+========================= */
+
+button {
+  border: none;
+
+  padding: 15px 35px;
+
+  border-radius: 13px;
+
+  font-size: 20px;
+
+  font-weight: bold;
+
+  font-family: inherit;
+
+  cursor: pointer;
+
+  user-select: none;
+
+  -webkit-tap-highlight-color: transparent;
+}
+
+
+/* =========================
+   YES BUTTON
+========================= */
+
+#yesBtn {
+  background: linear-gradient(
+    135deg,
+    #ff4500,
+    #ff8500
+  );
+
+  color: white;
+
+  box-shadow:
+    0 0 10px #ff4500,
+    0 0 25px rgba(255, 100, 0, 0.5);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+#yesBtn:hover {
+  transform: scale(1.1);
+
+  box-shadow:
+    0 0 20px #ff4500,
+    0 0 40px #ff8500;
+}
+
+
+/* =========================
+   NO BUTTON
+========================= */
+
+#noBtn {
+  position: relative;
+
+  background: #202020;
+
+  color: white;
+
+  border: 2px solid #777;
+
+  /*
+    Important:
+    JavaScript controls the movement.
+  */
+
+  will-change: transform;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
+
+  z-index: 50;
+}
+
+#noBtn:hover {
+  background: #292929;
+
+  border-color: #ff4500;
+}
+
+
+/* =========================
+   MESSAGE
+========================= */
+
+#message {
+  display: none;
+
+  margin-top: 25px;
+
+  padding: 20px;
+
+  border-radius: 18px;
+
+  color: #ffb13b;
+
+  background: rgba(255, 69, 0, 0.12);
+
+  border: 2px solid #ff4500;
+
+  font-size: clamp(22px, 5vw, 32px);
+
+  font-weight: bold;
+
+  line-height: 1.3;
+
+  text-shadow:
+    0 0 10px #ff4500;
+
+  animation: messagePop 0.6s ease;
+}
+
+
+/* =========================
+   HINT
+========================= */
+
+.hint {
+  margin-top: 20px;
+
+  color: #999;
+
+  font-size: 14px;
+}
+
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes floating {
+
+  0%,
+  100% {
+    transform:
+      translateY(0)
+      rotate(-5deg);
+  }
+
+  50% {
+    transform:
+      translateY(-20px)
+      rotate(5deg);
+  }
+}
+
+
+@keyframes ghostFloat {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-25px);
+  }
+}
+
+
+@keyframes skullPulse {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.12);
+  }
+}
+
+
+@keyframes messagePop {
+
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+
+  70% {
+    transform: scale(1.08);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+@keyframes fly {
+
+  0% {
+    left: -100px;
+
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-70px);
+  }
+
+  100% {
+    left: 110%;
+
+    transform: translateY(20px);
+  }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+  .card {
+    padding: 35px 20px;
+  }
+
+  .moon {
+    width: 80px;
+    height: 80px;
+
+    right: 7%;
+  }
+
+  .moon::after {
+    width: 74px;
+    height: 74px;
+  }
+
+  .pumpkin,
+  .ghost {
+    font-size: 40px;
+  }
+
+  .buttons-area {
+    gap: 15px;
+  }
+
+  button {
+    padding: 13px 25px;
+
+    font-size: 18px;
+  }
+}
